@@ -61,6 +61,8 @@ class HTTPConnection(_HTTPConnection):
 
     def connect(self):
         _HTTPConnection.connect(self)
+        
+        self.sock.settimeout(None)
         self.sock.setsockopt(IPPROTO_TCP, TCP_NODELAY, 1)
 
 
